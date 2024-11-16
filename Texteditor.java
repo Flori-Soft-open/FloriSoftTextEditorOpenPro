@@ -50,8 +50,8 @@ public class SimpleTextEditor extends JFrame {
                 JPanel panel = new JPanel();
                 
                 // Erstelle die JLabel-Objekte mit Text
-                JLabel label = new JLabel("FloriSoft 2024 Sweet Pro open");
-                JLabel label2 = new JLabel("Alle Rechte Verhanden");
+                JLabel label = new JLabel("FloriSoft 2024 Open Pro open");
+                JLabel label2 = new JLabel("Version 1.0.0.0");
                 JLabel label3 = new JLabel("Made in Java");
                 
                 // Erstelle ein ImageIcon-Objekt und ein JLabel für das Bild
