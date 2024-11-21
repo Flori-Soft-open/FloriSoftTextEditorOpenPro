@@ -82,14 +82,14 @@
 
     // Save file function
     function saveFile() {
-        var filename = prompt ("Type the filename")
-        const text = document.getElementById('editor').value;
-        const blob = new Blob([text], { type: 'text/plain' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = filenames + '.fst';  // Default filename with .fst extension
-        link.click();
-    }
+    var filename = prompt("Type the filename");
+    const text = document.getElementById('editor').value;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename + '.fst';  // Default filename with .fst extension
+    link.click();
+}
 
     // Show about information
     function showAbout() {
