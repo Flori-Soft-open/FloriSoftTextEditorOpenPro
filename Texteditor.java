@@ -42,31 +42,31 @@ public class SimpleTextEditor extends JFrame {
 
         About.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("About FloriSoft");
+                JFrame frame = new JFrame("About FloriSoft Work Sweet");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(300, 400);
-                
-                // Erstelle ein Panel für die GUI-Elemente
+
+
                 JPanel panel = new JPanel();
-                
-                // Erstelle die JLabel-Objekte mit Text
-                JLabel label = new JLabel("FloriSoft 2024 Sweet Pro open");
-                JLabel label2 = new JLabel("Version 1.0.5.8.9");
-                JLabel label3 = new JLabel("Made in Java");
-                
-                // Erstelle ein ImageIcon-Objekt und ein JLabel für das Bild
-                ImageIcon imageIcon = new ImageIcon("icon.png"); // Ersetze den Pfad mit dem tatsächlichen Bildpfad
-                JLabel imageLabel = new JLabel(imageIcon); // Hier das ImageIcon korrekt zuweisen
-                
+
+
+                JLabel label = new JLabel("FloriSoft 2025 Sweet Pro open");
+                JLabel label2 = new JLabel("Version 2025");
+                JLabel label3 = new JLabel("Made by Flori-Soft-open :-D");
+
+
+                ImageIcon imageIcon = new ImageIcon("icon.png");
+                JLabel imageLabel = new JLabel(imageIcon);
+
                 // Füge die JLabel-Objekte und das Bild zum Panel hinzu
                 panel.add(imageLabel);
                 panel.add(label);
                 panel.add(label2);
                 panel.add(label3);
-                
+
                 // Füge das Panel zum Frame hinzu
                 frame.add(panel);
-                
+
                 // Setze das Frame sichtbar
                 frame.setVisible(true);
             }
@@ -96,38 +96,38 @@ public class SimpleTextEditor extends JFrame {
 
     private void openFile() {
         JFileChooser fileChooser = new JFileChooser();
-    
-        // FileFilter für .txt Dateien erstellen
+
+
         javax.swing.filechooser.FileFilter txtFilter = new javax.swing.filechooser.FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".fst");
             }
-    
+
             @Override
             public String getDescription() {
                 return "FloriSoftTextfiles (*.fst)";
             }
         };
-    
+
         // FileFilter für .bat Dateien erstellen
         javax.swing.filechooser.FileFilter batFilter = new javax.swing.filechooser.FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".bat");
             }
-    
+
             @Override
             public String getDescription() {
                 return "Batch-Dateien (*.bat)";
             }
         };
-    
+
         // Filter hinzufügen
         fileChooser.addChoosableFileFilter(txtFilter);
         fileChooser.addChoosableFileFilter(batFilter);
         fileChooser.setAcceptAllFileFilterUsed(false); // Optional: Deaktiviert den "Alle Dateien"-Filter
-    
+
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -141,32 +141,32 @@ public class SimpleTextEditor extends JFrame {
             }
         }
     }
-    
+
 
     private void saveFile() {
         JFileChooser fileChooser = new JFileChooser();
-        
+
         // FileFilter für .fst Dateien erstellen
         fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".fst");
             }
-    
+
             @Override
             public String getDescription() {
                 return "FloriSoftTextEditor Files (*.fst)";
             }
         });
-    
+
         if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            
+
             // Überprüfen, ob die Endung .fst vorhanden ist, und sie hinzufügen, falls nicht
             if (!file.getName().toLowerCase().endsWith(".fst")) {
                 file = new File(file.getAbsolutePath() + ".fst");
             }
-            
+
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
                 bw.write(textArea.getText());
             } catch (IOException e) {
